@@ -53,4 +53,7 @@ $RECYCLE.BIN/
 
 # 実行ファイル
 *.exe
+
+# 秘密にしたい情報
 caprivkey.pem
+src/private/config.nim

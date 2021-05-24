@@ -7,3 +7,4 @@
 
 const
   CODE_STATS_API_KEY* = "YOUR_API_KEY"
+  VERSION* = "0.1.0"

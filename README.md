@@ -1,6 +1,9 @@
 # Code::Stats client written in nim
 Nimで作った、Code::StatsにPulseを送るコマンド。
 チートになるので、ご利用は計画的に。
+
+Pulseの送信に1~2秒程度かかるので、別プロセスなどで呼ばないと、多分しんどい。
+
 ## インターフェース
 
 ```bash
@@ -27,6 +30,9 @@ $ nimble build -d=ssl
 $ codestats "Fish(Terminal)" 20 API_KEY
 ```
 API_KEYがハードコードされているのは問題なので、コマンドライン引数か環境変数にする
+
+呼び出し間隔を開けて、Code::Stats側に負荷がかかりすぎないようにする。呼び出しごとにプロセスは終了するので、ファイルか何かに状態を書き出さないと無理。あるいはこれも、環境変数を使って解決するほうが良いか？
+
 ## SSLについて
 
 httpsを使うため、httpclientに"https://codestats.net/"を渡す。

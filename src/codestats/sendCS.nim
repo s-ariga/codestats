@@ -16,10 +16,6 @@ type
     contentType:  string
     apiKey:  string
     userAgent:  string
-    ##  #payload:  string
-    request: string
-    url: string
-    body: string
 
   ## Pulseの内容
   Pulse = object
@@ -28,11 +24,12 @@ type
     xp: int
 
 func initHeader(): Head =
+  ## ヘッダの初期化。いまのところ全部定数
   var head = Head()
   head.contentType = "application/json"
   head.apiKey = CODE_STATS_API_KEY
-  head.userAgent = "code-stats-nim/0.1.0"
-  # head.request = "POST"
+  head.userAgent = "code-stats-nim/" & VERSION
+
   return head
 
 proc initPulse(lang: string, xp: int): Pulse =
