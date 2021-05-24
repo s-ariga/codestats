@@ -1,6 +1,6 @@
 # Package
 
-version       = "0.1.0"
+version       = "0.2.1"
 author        = "Seiichi Ariga"
 description   = "Code::stats client written in nim. Called from precmd hook."
 license       = "MIT"
