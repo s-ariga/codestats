@@ -7,6 +7,7 @@
 function cs_pulse_preexec --on-event fish_preexec
 
 ## 入力したコマンドの長さ(newlineまで含む)
+## $argvはこのpreexecが呼び出された元のコマンド
   set xp (echo $argv | wc -m)
 
 ## exitを送信するとfishが終わらなくなる(?)
@@ -14,6 +15,6 @@ function cs_pulse_preexec --on-event fish_preexec
   if echo $argv | grep -q exit
     echo "Exiting Fish"
   else
-    ~/bin/codestats "Terminal(Fish)" $xp 2>/dev/null &
+    ~/bin/codestats "Terminal (Fish)" $xp 2>/dev/null &
   end
 end
