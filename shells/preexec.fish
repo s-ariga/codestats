@@ -11,6 +11,9 @@ function cs_pulse_preexec --on-event fish_preexec
 
 ## exitを送信するとfishが終わらなくなる(?)
 ## TODO もっと良い方法
-  if grep -q exit $argv
+  if echo $argv | grep -q exit
+    echo "Exiting Fish"
+  else
     ~/bin/codestats "Terminal(Fish)" $xp 2>/dev/null &
+  end
 end
