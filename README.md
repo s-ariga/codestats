@@ -12,6 +12,16 @@ Example
 $ codestats "Fish(Terminal)" 10
 ```
 
+## Compile
+OpenSSLを使うため、
+```
+$ nimble build -d:ssl
+```
+のはずだけど、Windowsだと
+```
+$ nimble build -d=ssl
+```
+
 ## TODO
 ```bash
 $ codestats "Fish(Terminal)" 20 API_KEY
