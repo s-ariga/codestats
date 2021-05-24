@@ -63,20 +63,20 @@ proc sendPulse(head: Head, pulse: Pulse) =
       "coded_at": pulse.codedAt,
       "xps": [{"language": pulse.lang, "xp": pulse.xp}]
     }
-  let response = client.request(API_PULSE_HOST & API_PULSE_ROUTE, httpMethod = HttpPost, body = $body)
-  echo response.status
+  discard client.request(API_PULSE_HOST & API_PULSE_ROUTE, httpMethod = HttpPost, body = $body)
+  # echo response.status
 
 proc sendCS*(lang: string, xp: int) =
   ## Code::statsにxpを送る
 
-  if xp == 1:
+  if xp < 2:
     ## 送るXPが0のときは何もしない
     return
 
   let head = initHeader()
-  echo head
+  # echo head
   let pulse = initPulse(lang, xp)
-  echo pulse
+  # echo pulse
 
   sendPulse(head, pulse)
 
